@@ -1,0 +1,10 @@
+{
+    "GrayBG" : "e8e8e8",
+    "ForegroundDefault" : "#000000",
+    "FontNameDefault": "TitilliumWeb-Regular",
+    "FontNameWide": "Formula1-Wide",
+    "FontNameBold": "TitilliumWeb-Bold",
+    "FormulaBold" : "Formula1-Bold",
+
+    "textCellHeight" : "35"
+}

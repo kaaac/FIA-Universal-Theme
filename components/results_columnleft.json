@@ -1,0 +1,38 @@
+{
+    "BlockType" : "text",
+    "Source" : "<source>",
+    "Width" : "<width>",
+    "Height" : 35,
+    "TextOptions" : {
+        "HorizontalAlignment" : "Left",
+        "VerticalAlignment" : "Bottom",
+        "FontName" : "<fontt>"
+    },
+    "Triggers" : [
+        {
+            "Condition" : "{Item.Index, Converter=NumberIsEven}",
+            "Property" : "Background",
+            "Value" : "{GrayBG}"
+        },
+        {
+            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+            "Setters" : [
+                {
+                    "Property" : "BackgroundImage",
+                    "Value" : "images/borderbg.png"
+                },
+                {
+                    "Property" : "Background",
+                    "Value" : ""
+                }
+            ]
+            
+        },
+        {
+            "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+            "Property" : "Height",
+            "Value" : "33"
+        }
+    ]
+
+}
