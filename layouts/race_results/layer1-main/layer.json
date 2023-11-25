@@ -115,7 +115,8 @@
                                         "ComponentOptions" : {
                                             "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50"
+                                                "width" : "50",
+                                                "pathh" : "images/flags/{Item.Driver.Nationality.Code}.png"
                                             }
                                         }
                                         
@@ -367,7 +368,8 @@
                                         "ComponentOptions" : {
                                             "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50"
+                                                "width" : "50",
+                                                "pathh" : "images/flags/{Item.Driver.Nationality.Code}.png"
                                             }
                                         }
                                         
@@ -515,201 +517,87 @@
                 "HorizontalAlignment" : "Center",
                 "Items" : [
                     {
-                        "BlockType" : "table",
+                        "BlockType" : "stack",
+                        "Orientation" : "Horizontal",
                         "HorizontalAlignment" : "Center",
-                        "TableOptions" : {
-                            "ItemsSource" : "{Session.Drivers}",
-                            "OrderBy" : "{FastestLapTime}",
-                            "Limit" : 1,
-                            "HeaderTemplate" : {
+                        "Items" : [
+                            {
                                 "BlockType" : "text",
-                                "FontName" : "{FontNameBold}",
-                                "HorizontalAlignment" : "Center"
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "30",
+                                "PaddingRight" : "10",
                             },
-                            "Columns" : [
-                                {
-                                    "Header" : "",
-                                    "Name" : "indexcolumn",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
-                                            "Vars" : {
-                                                "width" : "23",
-                                                "source" : " ",
-                                                "paddingright" : "10"
+                            {
+                                "BlockType" : "text",
+                                "Source" : "{Session.FastestLapDriver.RaceNumber}",
+                                "FontName" : "{FontNameBold}",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "35"
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "{Session.FastestLapDriver.Name}",
+                                "FontName" : "{FontNameBold}",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "300"
+                            },
+                            {
+                                "BlockType" : "stack",
+                                "Orientation" : "Vertical",
+                                "Height" : 35,
+                                "Width" : 50,
+                                "BackgroundImage":"images/borderbg.png",
+                                "Items" : [
+                                    {
+                                        "BlockType" : "dock",
+                                        "VerticalAlignment" : "Bottom",
+                                        "HorizontalAlignment" : "Center",
+                                        "Height" : 30,
+                                        "Orientation" : "Vertical",
+                                        "Items" : [
+                                            {
+                                                "BlockType" : "image",
+                                                "Background" : "#000000",
+                                                "Height" : 25,
+                                                "Width" : 32,
+                                                "VerticalAlignment" : "Center",
+                                                "ImageOptions": {
+                                                    "Path": "images/flags/{Session.FastestLapDriver.Nationality.Code}.png"
+                                                }
                                             }
-                                        }                                        
+                                        ]
                                     }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "racenumber",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
-                                            "Vars" : {
-                                                "width" : "35",
-                                                "source" : "{Item.Driver.RaceNumber}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },{
-                                    "Header" : "",
-                                    "Name" : "drivername",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
-                                            "Vars" : {
-                                                "width" : "300",
-                                                "source" : "{Item.Driver.Name}",
-                                                "fontt" : "{FontNameBold}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "flag",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "driver_flag",
-                                            "Vars" : {
-                                                "width" : "50"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "TEAM",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
-                                            "Vars" : {
-                                                "width" : "250",
-                                                "source" : "{Item.Team.Name}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "laps",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
-                                            "Vars" : {
-                                                "width" : "70",
-                                                "source" : " ",
-                                                "font" : "{FontNameBold}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "TIME",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
-                                            "Vars" : {
-                                                "width" : "130",
-                                                "source" : "{Item.FastestLapTime}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "GAP",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
-                                            "Vars" : {
-                                                "width" : "130",
-                                                "source" : "on lap {Item.FastestLapNumLap}"
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "GAP",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
-                                            "Vars" : {
-                                                "width" : "70",
-                                                "source" : " "
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "FASTEST",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
-                                            "Vars" : {
-                                                "width" : "130",
-                                                "source" : " "
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "ON",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
-                                            "Vars" : {
-                                                "width" : "50",
-                                                "source" : " "
-                                            }
-                                        }
-                                        
-                                    }
-                                },
-                                {
-                                    "Header" : "",
-                                    "Name" : "PTS",
-                                    "Template" : {
-                                        "BlockType" : "component",
-                                        "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
-                                            "Vars" : {
-                                                "width" : "50",
-                                                "source" : " "
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
+                                ]
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "500"
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "on Lap {Session.FastestLapNumLap}",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "130"
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "250"
+                            }
+                        ]
                     }
                 ]
             }

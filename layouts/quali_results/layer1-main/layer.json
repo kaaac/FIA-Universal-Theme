@@ -114,7 +114,8 @@
                                         "ComponentOptions" : {
                                             "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50"
+                                                "width" : "50",
+                                                "pathh" : "images/flags/{Item.Driver.Nationality.Code}.png"
                                             }
                                         }
                                         
@@ -285,7 +286,8 @@
                                         "ComponentOptions" : {
                                             "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50"
+                                                "width" : "50",
+                                                "pathh" : "images/flags/{Item.Driver.Nationality.Code}.png"
                                             }
                                         }
                                         

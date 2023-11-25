@@ -1,0 +1,244 @@
+{
+    "BlockRoot": {
+        "BlockType" : "stack",
+        "Orientation" : "Vertical",
+        "Margin" : "25,25,25,25",
+        "Items": [
+            {
+                "BlockType" : "text",
+                "Source" : "{Season.LeagueInfo.LeagueFullName} - {Season.MainLeagueCategory.Name}",
+                "Width" : "*",
+                "Background" : "#000000",
+                "Foreground" : "#ffffff",
+                "Height" : 50,
+                "MarginBottom" : 15,
+                "PaddingLeft" : 15,
+                "PaddingRight" : 15,
+                "TextOptions" : {
+                    "HorizontalAlignment" :"Center",
+                    "FontName" : "{FormulaBold}",
+                    "FontSize" : 30
+                }
+            },
+            {
+                "BlockType" : "text",
+                "Width" : "*",
+                "Source" : "Driver Standings",
+                "Background" : "#b8b7bb",
+                "Height" : 50,
+                "MarginBottom" : 15,
+                "TextOptions" : {
+                    "HorizontalAlignment" :"Center",
+                    "FontName" : "{FormulaBold}",
+                    "FontSize" : 30
+                }
+            },
+            {
+                "BlockType" : "stack",
+                "Orientation" : "Horizontal",
+                "HorizontalAlignment" : "Center",
+                "Items" : [
+                    {
+                        "BlockType" : "table",
+                        "HorizontalAlignment" : "Center",
+                        "TableOptions" : {
+                            "ItemsSource": "{Standings.Teams}",
+                            "HeaderTemplate": {
+                                "BlockType" : "text",
+                                "FontName" : "{FontNameBold}",
+                                "HorizontalAlignment" : "Center",
+                                "Width" : "*"
+                            },
+                            "Columns": [
+                                {
+                                    "Header" : "",
+                                    "Name" : "indexcolumn",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columnright",
+                                            "Vars" : {
+                                                "width" : "23",
+                                                "source" : "{Item.Position}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameDefault}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "TEAM",
+                                    "Name" : "TEAM",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columnleft",
+                                            "Vars" : {
+                                                "width" : "250",
+                                                "source" : "{Item.Team.Name} {Item.Team.Nation.Code}"
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "NAT",
+                                    "Name" : "flag",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "driver_flag",
+                                            "Vars" : {
+                                                "width" : "50",
+                                                "pathh" : "images/flags/{Item.Team.Nation.Code}.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "POINTS",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columnright",
+                                            "Vars" : {
+                                                "width" : "35",
+                                                "source" : "{Item.Points}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                //position_jump
+                                {
+                                    "Header": "",
+                                    "Template":
+                                    {
+                                        "BlockType" : "component",
+                                        "ComponentName" : "position_jump_cell"    
+                                    }
+                                },
+                                {
+                                    "Header" : "Wins",
+                                    "Name" : "indexcolumn",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "45",
+                                                "source" : "{Item.CountP1, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "2nd",
+                                    "Name" : "indexcolumn",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "40",
+                                                "source" : "{Item.CountP2, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameDefault}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "3rd",
+                                    "Name" : "indexcolumn",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "40",
+                                                "source" : "{Item.CountP3, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameDefault}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "FL",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "35",
+                                                "source" : "{Item.RaceFastestLapCount, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "Poles",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "75",
+                                                "source" : "{Item.CountQualP1, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "Pen. pts",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "75",
+                                                "source" : "{Item.PenaltyPoints, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}",
+                                                "foregr" : "#9B0909"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "Events",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "ComponentOptions" : {
+                                            "ComponentName" : "results_columncenter",
+                                            "Vars" : {
+                                                "width" : "75",
+                                                "source" : "{Item.EventsCount, Converter=NumberZeroToEmpty}",
+                                                "paddingright" : "10",
+                                                "fontt" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

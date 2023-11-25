@@ -6,7 +6,8 @@
     "TextOptions" : {
         "HorizontalAlignment" : "Center",
         "VerticalAlignment" : "Bottom",
-        "FontName" : "<fontt>"
+        "FontName" : "<fontt>",
+        "Foreground" : "<foregr>"
     },
     "Triggers" : [
         {

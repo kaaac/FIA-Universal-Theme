@@ -1,0 +1,91 @@
+{
+    "BlockType" : "dock",
+    "Items":
+    [
+        {                                
+                
+            "BlockType" : "stack",                         
+            "HorizontalAlignment": "Center",
+            "VerticalAlignment" : "Center",
+            "Spacing" : 4,            
+            "Items" :[
+                {
+                    "BlockType" : "image",
+                    "RenderIf" : "{Item.PositionJump, Converter=NumberGreater, Parameter=0}",
+                    "Source" : "arrow_up.png",
+                    "HorizontalAlignment": "Center",
+                    "VerticalAlignment" : "Center",
+                    "Height" : 12                                                                
+                },
+                {
+                    "BlockType" : "image",
+                    "RenderIf" : "{Item.PositionJump, Converter=NumberLess, Parameter=0}",
+                    "Source" : "arrow_down.png",
+                    "HorizontalAlignment": "Center",
+                    "VerticalAlignment" : "Center",
+                    "Height" : 12                                                              
+                },
+                {
+                    "BlockType": "text",
+                    "RenderIf" : "{Item.PositionJump, Converter=NumberNotEquals, Parameter=0}",
+                    "Source": "{Item.PositionJump, Converter=NumberAbs}",                            
+                    "HorizontalAlignment": "Center",
+                    "VerticalAlignment" : "Center",
+                    "FontName": "{FontNameDefault}",
+                    "FontSize": 18,
+                    "TextOptions": {
+                        "HorizontalAlignment": "Center"
+                    },
+                    "Triggers" : [
+                        {
+                            "Condition" : "{Item.PositionJump, Converter=NumberGreater, Parameter=0}",
+                            "Setters" :
+                            [
+                                {
+                                    "Property" : "Foreground",
+                                    "Value" : "#0E8F17"
+                                }
+                            ]
+                        },
+                        {
+                            "Condition" : "{Item.PositionJump, Converter=NumberLess, Parameter=0}",
+                            "Setters" :
+                            [
+                                {
+                                    "Property" : "Foreground",
+                                    "Value" : "#9B0909"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]                                           
+        }
+    ],
+    "Triggers" : [
+        {
+            "Condition" : "{Item.Index, Converter=NumberIsEven}",
+            "Property" : "Background",
+            "Value" : "{GrayBG}"
+        },
+        {
+            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+            "Setters" : [
+                {
+                    "Property" : "BackgroundImage",
+                    "Value" : "images/borderbg.png"
+                },
+                {
+                    "Property" : "Background",
+                    "Value" : ""
+                }
+            ]
+            
+        },
+        {
+            "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+            "Property" : "Height",
+            "Value" : "33"
+        }
+    ]
+}
