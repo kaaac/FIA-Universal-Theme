@@ -18,12 +18,19 @@
                     "HorizontalAlignment" :"Center",
                     "FontName" : "{FormulaBold}",
                     "FontSize" : 30
-                }
+                },
+                "Triggers" : [
+                    {
+                        "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+                        "Property" : "Source",
+                        "Value" : "{Season.LeagueInfo.LeagueFullName}"
+                    }
+                ]
             },
             {
                 "BlockType" : "text",
                 "Width" : "*",
-                "Source" : "Driver Standings",
+                "Source" : "Team Standings",
                 "Background" : "#b8b7bb",
                 "Height" : 50,
                 "MarginBottom" : 15,
@@ -75,7 +82,7 @@
                                             "ComponentName" : "results_columnleft",
                                             "Vars" : {
                                                 "width" : "250",
-                                                "source" : "{Item.Team.Name} {Item.Team.Nation.Code}"
+                                                "source" : "{Item.Team.Name}"
                                             }
                                         }
                                         

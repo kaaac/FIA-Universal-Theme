@@ -18,7 +18,14 @@
                     "HorizontalAlignment" :"Center",
                     "FontName" : "{FormulaBold}",
                     "FontSize" : 30
-                }
+                },
+                "Triggers" : [
+                    {
+                        "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+                        "Property" : "Source",
+                        "Value" : "{Season.LeagueInfo.LeagueFullName}"
+                    }
+                ]
             },
             {
                 "BlockType" : "text",

@@ -18,12 +18,19 @@
                     "HorizontalAlignment" :"Center",
                     "FontName" : "{FormulaBold}",
                     "FontSize" : 30
-                }
+                },
+                "Triggers" : [
+                    {
+                        "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+                        "Property" : "Source",
+                        "Value" : "{Season.LeagueInfo.LeagueFullName} - Grand Prix {Event.Date, Converter=DateToYear} - {Event.TrackName}"
+                    }
+                ]
             },
             {
                 "BlockType" : "text",
                 "Width" : "*",
-                "Source" : "Qualification Classification",// - {Session.QualType}",
+                "Source" : "Qualification Classification",
                 "Background" : "#b8b7bb",
                 "Height" : 50,
                 "MarginBottom" : 15,

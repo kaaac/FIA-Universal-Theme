@@ -18,7 +18,14 @@
                     "HorizontalAlignment" :"Center",
                     "FontName" : "{FormulaBold}",
                     "FontSize" : 30
-                }
+                },
+                "Triggers" : [
+                    {
+                        "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+                        "Property" : "Source",
+                        "Value" : "{Season.LeagueInfo.LeagueFullName} - Grand Prix {Event.Date, Converter=DateToYear} - {Event.TrackName}"
+                    }
+                ]
             },
             {
                 "BlockType" : "text",
@@ -149,8 +156,14 @@
                                                 "source" : "{Item.LapsCount}",
                                                 "font" : "{FontNameBold}"
                                             }
-                                        }
-                                        
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                     }
                                 },
                                 {
@@ -186,7 +199,7 @@
                                 },
                                 {
                                     "Header" : "KM/H",
-                                    "Name" : "GAP",
+                                    "Name" : "KMH",
                                     "Template" : {
                                         "BlockType" : "component",
                                         "ComponentOptions" : {
@@ -195,7 +208,14 @@
                                                 "width" : "70",
                                                 "source" : "{Item.MaxSpeed}"
                                             }
-                                        }
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                         
                                     }
                                 },
@@ -225,7 +245,14 @@
                                                 "width" : "50",
                                                 "source" : "{Item.FastestLapNumLap}"
                                             }
-                                        }
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                         
                                     }
                                 },
@@ -402,8 +429,14 @@
                                                 "source" : "{Item.LapsCount}",
                                                 "font" : "{FontNameBold}"
                                             }
-                                        }
-                                        
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                     }
                                 },
                                 {
@@ -438,7 +471,7 @@
                                 },
                                 {
                                     "Header" : "",
-                                    "Name" : "GAP",
+                                    "Name" : "KMH",
                                     "Template" : {
                                         "BlockType" : "component",
                                         "ComponentOptions" : {
@@ -447,7 +480,14 @@
                                                 "width" : "70",
                                                 "source" : "{Item.MaxSpeed}"
                                             }
-                                        }
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                         
                                     }
                                 },
@@ -477,7 +517,14 @@
                                                 "width" : "50",
                                                 "source" : "{Item.FastestLapNumLap}"
                                             }
-                                        }
+                                        },
+                                        "Triggers" : [
+                                            {
+                                                "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                                "Property" : "RenderIf",
+                                                "Value" : "false"
+                                            }
+                                        ]
                                         
                                     }
                                 },
@@ -580,7 +627,30 @@
                                 "Foreground" : "#00ffffff",
                                 "BackgroundImage" : "images/borderbg.png",
                                 "Height" : "35",
-                                "Width" : "500"
+                                "Width" : "200"
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "{Session.FastestLapTime}",
+                                //"Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "230"
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "70",
+                                "Triggers" : [
+                                    {
+                                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                        "Property" : "RenderIf",
+                                        "Value" : "false"
+                                    }
+                                ]
                             },
                             {
                                 "BlockType" : "text",
@@ -595,7 +665,37 @@
                                 "Foreground" : "#00ffffff",
                                 "BackgroundImage" : "images/borderbg.png",
                                 "Height" : "35",
-                                "Width" : "250"
+                                "Width" : "50",
+                                "Triggers" : [
+                                    {
+                                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                        "Property" : "RenderIf",
+                                        "Value" : "false"
+                                    }
+                                ]
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "70",
+                                "Triggers" : [
+                                    {
+                                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                        "Property" : "RenderIf",
+                                        "Value" : "false"
+                                    }
+                                ]
+                            },
+                            {
+                                "BlockType" : "text",
+                                "Source" : "A",
+                                "Foreground" : "#00ffffff",
+                                "BackgroundImage" : "images/borderbg.png",
+                                "Height" : "35",
+                                "Width" : "130"
                             }
                         ]
                     }
