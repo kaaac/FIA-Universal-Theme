@@ -136,7 +136,7 @@
                                         "ComponentOptions" : {
                                             "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "45",
+                                                "width" : "60",
                                                 "source" : "{Item.CountP1, Converter=NumberZeroToEmpty}",
                                                 "paddingright" : "10",
                                                 "fontt" : "{FontNameBold}"
