@@ -657,7 +657,14 @@
                                 "Source" : "on Lap {Session.FastestLapNumLap}",
                                 "BackgroundImage" : "images/borderbg.png",
                                 "Height" : "35",
-                                "Width" : "130"
+                                "Width" : "130",
+                                "Triggers" : [
+                                    {
+                                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                                        "Property" : "Foreground",
+                                        "Value" : "#00000000"
+                                    }
+                                ]
                             },
                             {
                                 "BlockType" : "text",
