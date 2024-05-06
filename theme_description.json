@@ -1,0 +1,19 @@
+{
+  "Name": "FIA Universal Theme",
+  "Author": "Kaac",
+  "Version" : "3.0.0",
+  "ThemeId": "kaaac.fia_universal_theme",
+  "DownloadUrl": "https://github.com/kaaac/FIA-Universal-Theme/releases/download/3/FIA-Universal-Theme.zip",
+  "Links": [
+    {
+      "Type": "SupportAuthor",
+      "Url" : "https://buymeacoffee.com/kaaac",
+      "Caption": "Support me"
+    },
+    {
+      "Type" : "ThemeIssueReport",
+      "Url" : "https://github.com/kaaac/FIA-Universal-Theme/issues/new",
+      "Caption": "Report Issue"
+    }
+  ]
+}

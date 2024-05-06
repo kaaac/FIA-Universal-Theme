@@ -5,6 +5,7 @@
     "FontNameWide": "Formula1-Wide",
     "FontNameBold": "TitilliumWeb-Bold",
     "FormulaBold" : "Formula1-Bold",
-
+    "ForeGroundFirstInTable" : "00000000",
+    "FontSizeDefault" : 20,
     "textCellHeight" : "35"
 }

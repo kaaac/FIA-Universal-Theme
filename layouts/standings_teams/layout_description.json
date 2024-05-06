@@ -1,6 +1,5 @@
 {
     "LayoutName": "teamStandings",
     "RenderType": "TeamStandings",
-	"RenderCaption": "",
-    "Index" : 0	
+	"RenderCaption": ""
 }
