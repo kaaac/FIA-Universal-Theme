@@ -1,54 +1,54 @@
 {
-    "BlockType" : "stack",
-    "Orientation" : "Vertical",
-    "Height" : 35,
-    "Width" : "<width>",
-    "Items" : [
+  "ComponentName": "driver_flag",
+  "BlockType" : "stack",
+  "Orientation" : "Vertical",
+  "Height" : 35,
+  "Width" : "<wwidth>",
+  "Items" : [
+    {
+      "BlockType" : "dock",
+      "VerticalAlignment" : "Bottom",
+      "HorizontalAlignment" : "Center",
+      "Height" : 30,
+      "Orientation" : "Vertical",
+      "Items" : [
         {
-            "BlockType" : "dock",
-            "VerticalAlignment" : "Bottom",
-            "HorizontalAlignment" : "Center",
-            "Height" : 30,
-            "Orientation" : "Vertical",
-            "Items" : [
-                {
-                    "BlockType" : "image",
-                    "Background" : "#000000",
-                    "Height" : 25,
-                    "Width" : 32,
-                    //"Padding" : "1,1,1,1",
-                    "VerticalAlignment" : "Center",
-                    "ImageOptions": {
-                        "Path": "<pathh>"
-                    }
-                }
-            ]
+          "BlockType" : "image",
+          "Background" : "#000000",
+          "Height" : 25,
+          "Width" : 32,          
+          "VerticalAlignment" : "Center",
+          "ImageOptions": {
+            "Path": "<ppath>"
+          }
         }
-    ],
-    "Triggers" : [
+      ]
+    }
+  ],
+  "Triggers" : [
+    {
+      "Condition" : "{Item.Index, Converter=NumberIsEven}",
+      "Property" : "Background",
+      "Value" : "{GrayBG}"
+    },
+    {
+      "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+      "Setters" : [
         {
-            "Condition" : "{Item.Index, Converter=NumberIsEven}",
-            "Property" : "Background",
-            "Value" : "{GrayBG}"
+          "Property" : "BackgroundImage",
+          "Value" : "borderbg.png"
         },
         {
-            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
-            "Setters" : [
-                {
-                    "Property" : "BackgroundImage",
-                    "Value" : "images/borderbg.png"
-                },
-                {
-                    "Property" : "Background",
-                    "Value" : ""
-                }
-            ]
-            
-        },
-        {
-            "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
-            "Property" : "Height",
-            "Value" : "33"
+          "Property" : "Background",
+          "Value" : "null"
         }
-    ]
+      ]
+      
+    },
+    {
+      "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+      "Property" : "Height",
+      "Value" : "33"
+    }
+  ]
 }

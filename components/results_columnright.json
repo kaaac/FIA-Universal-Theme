@@ -1,48 +1,48 @@
 {
-    "BlockType" : "text",
-    "Source" : "<source>",
-    "Width" : "<width>",
-    "Height" : 35,
-    "PaddingRight" : "<paddingright>",
-    "TextOptions" : {
-        "HorizontalAlignment" : "Right",
-        "VerticalAlignment" : "Bottom",
-        "FontName" : "<fontt>"
+  "ComponentName": "results_columnright",
+  "BlockType" : "text",
+  "Source" : "<ssource>",
+  "Width" : "<wwidth>",
+  "FontName" : "<ffont>",
+  "Height" : 35,
+  "PaddingRight" : "<ppaddingright>",
+  "TextOptions" : {
+      "HorizontalAlignment" : "Right",
+      "VerticalAlignment" : "Bottom",
+  },
+  "Triggers" : [
+    {
+      "Condition" : "{Item.Index, Converter=NumberIsEven}",
+      "Property" : "Background",
+      "Value" : "{GrayBG}"
     },
-    "Triggers" : [
+    {
+      "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+      "Setters" : [
         {
-            "Condition" : "{Item.Index, Converter=NumberIsEven}",
+            "Property" : "BackgroundImage",
+            "Value" : "borderbg.png"
+        },
+        {
             "Property" : "Background",
-            "Value" : "{GrayBG}"
-        },
-        {
-            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
-            "Setters" : [
-                {
-                    "Property" : "BackgroundImage",
-                    "Value" : "images/borderbg.png"
-                },
-                {
-                    "Property" : "Background",
-                    "Value" : ""
-                }
-            ]
-            
-        },
-        {
-            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
-            "Property" : "Foreground",
-            "Value" : "<forefirst>"
-        },
-        {
-            "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
-            "Property" : "Height",
-            "Value" : "33"
-        },
-        {
-            "Condition" : "<{source, Converter=NumberNotEquals, Parameter=-1}>",
-            "Property" : "Foreground",
-            "Value" : "#00000000"
+            "Value" : "null"
         }
-    ]
+      ]
+    },
+    //{
+    //    "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+    //    "Property" : "Foreground",
+    //    "Value" : "{ForeGroundFirstInTable}"
+    //},
+    {
+        "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+        "Property" : "Height",
+        "Value" : "33"
+    },
+    {
+        "Condition" : "<{ssource, Converter=NumberEquals, Parameter=-1}>",
+        "Property" : "Foreground",
+        "Value" : "#00000000"
+    }
+  ]
 }

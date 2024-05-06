@@ -1,38 +1,39 @@
 {
-    "BlockType" : "text",
-    "Source" : "<source>",
-    "Width" : "<width>",
-    "Height" : 35,
-    "TextOptions" : {
-        "HorizontalAlignment" : "Left",
-        "VerticalAlignment" : "Bottom",
-        "FontName" : "<fontt>"
+  "ComponentName": "results_columnleft",
+  "BlockType" : "text",
+  "Source" : "<ssource>",
+  "Width" : "<wwidth>",
+  "FontName" : "<ffont>",
+  "Height" : 35,
+  "HorizontalAlignment" : "Left",
+  "TextOptions" : {
+    
+    "HorizontalAlignment" : "Left",
+    "VerticalAlignment" : "Bottom"
+  },
+  "Triggers" : [
+    {
+      "Condition" : "{Item.Index, Converter=NumberIsEven}",
+      "Property" : "Background",
+      "Value" : "{GrayBG}"
     },
-    "Triggers" : [
+    {
+      "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+      "Setters" : [
         {
-            "Condition" : "{Item.Index, Converter=NumberIsEven}",
-            "Property" : "Background",
-            "Value" : "{GrayBG}"
+          "Property" : "BackgroundImage",
+          "Value" : "borderbg.png"
         },
         {
-            "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
-            "Setters" : [
-                {
-                    "Property" : "BackgroundImage",
-                    "Value" : "images/borderbg.png"
-                },
-                {
-                    "Property" : "Background",
-                    "Value" : ""
-                }
-            ]
-            
-        },
-        {
-            "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
-            "Property" : "Height",
-            "Value" : "33"
+          "Property" : "Background",
+          "Value" : "null"
         }
-    ]
-
+      ]
+    },
+    {
+      "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+      "Property" : "Height",
+      "Value" : "33"
+    }
+  ]
 }

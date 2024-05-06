@@ -1,6 +1,5 @@
 {
     "LayoutName": "driverStandings",
     "RenderType": "DriverStandings",
-	"RenderCaption": "",
-    "Index" : 0	
+	"RenderCaption": ""
 }

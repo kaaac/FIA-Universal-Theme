@@ -62,13 +62,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "23",
-                                                "source" : "{Item.Position}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameDefault}"
+                                                "wwidth" : "23",
+                                                "ssource" : "{Item.Position}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }                                        
                                     }
@@ -78,11 +78,12 @@
                                     "Name" : "TEAM",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnleft",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
                                             "Vars" : {
-                                                "width" : "250",
-                                                "source" : "{Item.Team.Name}"
+                                                "wwidth" : "250",
+                                                "ssource" : "{Item.Team.Name}",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }
                                         
@@ -93,11 +94,11 @@
                                     "Name" : "flag",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "driver_flag",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50",
-                                                "pathh" : "images/flags/{Item.Team.Nation.Code}.png"
+                                                "wwidth" : "50",
+                                                "ppath" : "flags/{Item.Team.Nation.Code}.png"
                                             }
                                         }
                                         
@@ -108,24 +109,23 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "35",
-                                                "source" : "{Item.Points}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "35",
+                                                "ssource" : "{Item.Points}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }
                                 },
-                                //position_jump
                                 {
                                     "Header": "",
                                     "Template":
-                                    {
+                                    {  
                                         "BlockType" : "component",
-                                        "ComponentName" : "position_jump_cell"    
+                                        "Component" : "position_jump_cell"
                                     }
                                 },
                                 {
@@ -133,13 +133,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "60",
-                                                "source" : "{Item.CountP1, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "60",
+                                                "ssource" : "{Item.CountP1, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }
@@ -149,13 +149,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "40",
-                                                "source" : "{Item.CountP2, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameDefault}"
+                                                "wwidth" : "40",
+                                                "ssource" : "{Item.CountP2, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }                                        
                                     }
@@ -165,13 +165,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "40",
-                                                "source" : "{Item.CountP3, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameDefault}"
+                                                "wwidth" : "40",
+                                                "ssource" : "{Item.CountP3, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }                                        
                                     }
@@ -181,13 +181,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "35",
-                                                "source" : "{Item.RaceFastestLapCount, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "35",
+                                                "ssource" : "{Item.RaceFastestLapCount, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }
@@ -197,13 +197,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "75",
-                                                "source" : "{Item.CountQualP1, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "75",
+                                                "ssource" : "{Item.CountQualP1, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }
@@ -213,13 +213,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "75",
-                                                "source" : "{Item.PenaltyPoints, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}",
+                                                "wwidth" : "75",
+                                                "ssource" : "{Item.PenaltyPoints, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}",
                                                 "foregr" : "#9B0909"
                                             }
                                         }                                        
@@ -230,13 +230,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "75",
-                                                "source" : "{Item.EventsCount, Converter=NumberZeroToEmpty}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "75",
+                                                "ssource" : "{Item.EventsCount, Converter=NumberZeroToEmpty}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }

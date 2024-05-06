@@ -1,0 +1,733 @@
+{
+  "BlockRoot" : {
+    "BlockType" : "stack",
+    "Orientation" : "Vertical",
+    "Margin" : "25,25,25,25",
+    "Items" : [
+      {
+        "BlockType" : "text",
+        "Source" : "{Season.LeagueInfo.LeagueFullName} - {Season.MainLeagueCategory.Name} Grand Prix {Event.Date, Converter=DateToYear} - {Event.TrackName}",
+        "Width" : "*",
+        "Background" : "#000000",
+        "Foreground" : "#ffffff",
+        "Height" : 50,
+        "MarginBottom" : 15,
+        "PaddingLeft" : 15,
+        "PaddingRight" : 15,
+        "TextOptions" : {
+          "HorizontalAlignment" :"Center",
+          "FontName" : "{FormulaBold}",
+          "FontSize" : 30
+        },
+        "Triggers" : [
+          {
+            "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+            "Property" : "Source",
+            "Value" : "{Season.LeagueInfo.LeagueFullName} - Grand Prix {Event.Date, Converter=DateToYear} - {Event.TrackName}"
+          }
+        ]
+      },
+      {
+        "BlockType" : "text",
+        "Width" : "*",
+        "Source" : "{Event.TrackName} ({Event.TrackCountryName})- Race Classification",
+        "Background" : "#b8b7bb",
+        "Height" : 50,
+        "MarginBottom" : 15,
+        "TextOptions" : {
+          "HorizontalAlignment" :"Center",
+          "FontName" : "{FormulaBold}",
+          "FontSize" : 30
+        },
+        "Triggers" : [
+          {
+            "Condition" : "{Session.IsLiveData}",
+            "Property" : "Source",
+            "Value" : "{Event.TrackName} ({Event.TrackCountryName}) - Race Classification after {Session.TotalLaps} laps"
+          }
+        ]
+      },
+      {
+        "BlockType" : "stack",
+        "Orientation" : "Horizontal",
+        "HorizontalAlignment" : "Center",
+        "Items" : [
+          {
+            "BlockType" : "table",
+            "HorizontalAlignment" : "Center",
+            "TableOptions" : {
+              "ItemsSource" : "{Session.Drivers}",
+              "FilterMember" : "Status",
+              "FilterMemberValue" : "Ok",
+              "HeaderTemplate" : {
+                "BlockType" : "text",
+                "FontName" : "{FontNameBold}",
+                "HorizontalAlignment" : "Center",
+                "Width" : "*"
+              },
+              "Columns" : [
+                {
+                  "Header" : "",
+                  "Template" : 
+                  {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "23",
+                        "ssource" : "{Item.Position}",
+                        "ppaddingright" : "10",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }                    
+                  }
+                },
+                {
+                  "Header" : "NO",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "35",
+                        "ssource" : "{Item.Driver.RaceNumber}",
+                        "ppaddingright" : "10",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    }                    
+                  }
+                },
+                {
+                  "Header" : "DRIVER",
+                  "Name" : "drivername",
+                  "Template" : 
+                  {
+                    "BlockType" : "component",
+                    "Component" : "results_columnleft",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "300",
+                        "ssource" : "{Item.Driver.Name}",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "NAT",
+                  "Name" : "flag",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "driver_flag",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ppath" : "flags/{Item.Driver.Nationality.Code}.png"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "TEAM",
+                  "Name" : "TEAM",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnleft",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "250",
+                        "ssource" : "{Item.Team.Name}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "LAPS",
+                  "Name" : "laps",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "70",
+                        "ssource" : "{Item.LapsCount}",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Header" : "TIME",
+                  "Name" : "TIME",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.AbsoluteTime}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "GAP",
+                  "Name" : "GAP",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.IntervalRace}",
+                        "forefirst" : "#00000000",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "KM/H",
+                  "Name" : "KMH",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "70",
+                        "ssource" : "{Item.MaxSpeed}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                    
+                  }
+                },
+                {
+                  "Header" : "FASTEST",
+                  "Name" : "FASTEST",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.FastestLapTime}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "Header" : "ON",
+                  "Name" : "ON",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ssource" : "{Item.FastestLapNumLap}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                    
+                  }
+                },
+                 {
+                  "Header" : "PTS",
+                  "Name" : "PTS",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ssource" : "{Item.DriverPointsString}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "BlockType" : "text",
+        "Width" : "*",
+        "Source" : "NOT FINISHED",
+        "HorizontalAlignment" : "Center",
+        "TextOptions" : {
+          "HorizontalAlignment" : "Center",
+          "FontName" : "{FontNameBold}"
+        }
+      },
+      {
+        "BlockType" : "stack",
+        "Orientation" : "Horizontal",
+        "HorizontalAlignment" : "Center",
+        "Items" : [
+          {
+            "BlockType" : "table",
+            "HorizontalAlignment" : "Center",
+            "TableOptions" : {
+              "ItemsSource" : "{Session.Drivers}",
+              "FilterMember" : "Status",
+              "FilterMemberValue" : "Dnf",
+              "HeaderTemplate" : {
+                "BlockType" : "text",
+                "FontName" : "{FontNameBold}",
+                "HorizontalAlignment" : "Center"
+              },
+              "Columns" : [
+                {
+                  "Header" : "",
+                  "Name" : "indexcolumn",
+                  "Template" : {
+                    "BlockType" : "text",
+                    "Source" : "{Item.ClassificationPosition}",
+                    "Width" : "23",
+                    "Height" : 35,
+                    "PaddingRight" : 10,
+                    "TextOptions" : {
+                      "HorizontalAlignment" : "Right",
+                      "VerticalAlignment" : "Bottom"
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Item.Index, Converter=NumberIsEven}",
+                        "Property" : "Background",
+                        "Value" : "{GrayBG}"
+                      },
+                      {
+                        "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+                        "Setters" : [
+                          {
+                            "Property" : "BackgroundImage",
+                            "Value" : "borderbg.png"
+                          },
+                          {
+                            "Property" : "Background",
+                            "Value" : "null"
+                          }
+                        ]
+                        
+                      },
+                      {
+                        "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+                        "Property" : "Foreground",
+                        "Value" : "<forefirst>"
+                      },
+                      {
+                        "Condition" : "{Item.Index, Converter=NumberNotEquals, Parameter=0}",
+                        "Property" : "Height",
+                        "Value" : "33"
+                      },
+                      {
+                        "Condition" : "{Item.ClassificationPosition, Converter=NumberEquals, Parameter=-1}",
+                        "Property" : "Foreground",
+                        "Value" : "#00000000"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "racenumber",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "35",
+                        "ssource" : "{Item.Driver.RaceNumber}",
+                        "ppaddingright" : "10",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "drivername",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnleft",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "300",
+                        "ssource" : "{Item.Driver.Name}",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "flag",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "driver_flag",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ppath" : "flags/{Item.Driver.Nationality.Code}.png"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "TEAM",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnleft",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "250",
+                        "ssource" : "{Item.Team.Name}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "laps",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "70",
+                        "ssource" : "{Item.LapsCount}",
+                        "ffont" : "{FontNameBold}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "TIME",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.AbsoluteTime}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "GAP",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columnright",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.IntervalRace}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "KMH",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "70",
+                        "ssource" : "{Item.MaxSpeed}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "FASTEST",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "130",
+                        "ssource" : "{Item.FastestLapTime}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "ON",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ssource" : "{Item.FastestLapNumLap}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    },
+                    "Triggers" : [
+                      {
+                        "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                        "Property" : "RenderIf",
+                        "Value" : "false"
+                      }
+                    ]
+                    
+                  }
+                },
+                {
+                  "Header" : "",
+                  "Name" : "PTS",
+                  "Template" : {
+                    "BlockType" : "component",
+                    "Component" : "results_columncenter",
+                    "ComponentOptions" : {
+                      "Vars" : {
+                        "wwidth" : "50",
+                        "ssource" : "{Item.DriverPointsString}",
+                        "ffont" : "{FontNameDefault}"
+                      }
+                    }
+                    
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "BlockType" : "text",
+        "Width" : "*",
+        "Source" : "FASTEST LAP",
+        "HorizontalAlignment" : "Center",
+        "TextOptions" : {
+          "HorizontalAlignment" : "Center",
+          "FontName" : "{FontNameBold}"
+        }
+      },
+      {
+        "BlockType" : "stack",
+        "Orientation" : "Horizontal",
+        "HorizontalAlignment" : "Center",
+        "Items" : [
+          {
+            "BlockType" : "stack",
+            "Orientation" : "Horizontal",
+            "HorizontalAlignment" : "Center",
+            "Items" : [
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "30",
+                "PaddingRight" : 10
+              },
+              {
+                "BlockType" : "text",
+                "Source" : "{Session.FastestLapDriver.RaceNumber}",
+                "FontName" : "{FontNameBold}",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "35"
+              },
+              {
+                "BlockType" : "text",
+                "Source" : "{Session.FastestLapDriver.Name}",
+                "FontName" : "{FontNameBold}",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "300"
+              },
+              {
+                "BlockType" : "stack",
+                "Orientation" : "Vertical",
+                "Height" : 35,
+                "Width" : 50,
+                "BackgroundImage":"borderbg.png",
+                "Items" : [
+                  {
+                    "BlockType" : "dock",
+                    "VerticalAlignment" : "Bottom",
+                    "HorizontalAlignment" : "Center",
+                    "Height" : 30,
+                    "Orientation" : "Vertical",
+                    "Items" : [
+                      {
+                        "BlockType" : "image",
+                        "Background" : "#000000",
+                        "Height" : 25,
+                        "Width" : 32,
+                        "VerticalAlignment" : "Center",
+                        "ImageOptions": {
+                          "Path": "flags/{Session.FastestLapDriver.Nationality.Code}.png"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "200"
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "{Session.FastestLapTime}",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "230"
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "70",
+                "Triggers" : [
+                  {
+                    "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                    "Property" : "RenderIf",
+                    "Value" : "false"
+                  }
+                ]
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "on Lap {Session.FastestLapNumLap}",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "130",
+                "Triggers" : [
+                  {
+                    "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                    "Property" : "Foreground",
+                    "Value" : "#00000000"
+                  }
+                ]
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "50",
+                "Triggers" : [
+                  {
+                    "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                    "Property" : "RenderIf",
+                    "Value" : "false"
+                  }
+                ]
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "70",
+                "Triggers" : [
+                  {
+                    "Condition" : "{Session.IsLiveData, Converter=BoolReverse}",
+                    "Property" : "RenderIf",
+                    "Value" : "false"
+                  }
+                ]
+              },
+              {
+                "BlockType" : "text",
+                "FontName": "{FontNameDefault}",
+                "Source" : "A",
+                "Foreground" : "#00ffffff",
+                "BackgroundImage" : "borderbg.png",
+                "Height" : "35",
+                "Width" : "130"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

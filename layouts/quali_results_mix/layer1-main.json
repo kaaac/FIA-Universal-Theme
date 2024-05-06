@@ -62,13 +62,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "23",
-                                                "source" : "{Item.Position}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameDefault}"
+                                                "wwidth" : "23",
+                                                "ssource" : "{Item.Position}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }                                        
                                     }
@@ -78,13 +78,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "35",
-                                                "source" : "{Item.Driver.RaceNumber}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "35",
+                                                "ssource" : "{Item.Driver.RaceNumber}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }                                        
                                     }
@@ -95,12 +95,12 @@
                                     "WidthStretch" : true,
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnleft",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
                                             "Vars" : {
-                                                "width" : "300",
-                                                "source" : "{Item.Driver.Name}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "300",
+                                                "ssource" : "{Item.Driver.Name}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -111,10 +111,10 @@
                                     "Name" : "flag",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "driver_flag",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50"
+                                                "wwidth" : "50"
                                             }
                                         }
                                         
@@ -125,11 +125,12 @@
                                     "Name" : "TEAM",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnleft",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
                                             "Vars" : {
-                                                "width" : "250",
-                                                "source" : "{Item.Team.Name}"
+                                                "wwidth" : "250",
+                                                "ssource" : "{Item.Team.Name}",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }
                                         
@@ -140,12 +141,12 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "130",
-                                                "source" : "{Item.QualQ1Time}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "130",
+                                                "ssource" : "{Item.QualQ1Time}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -156,12 +157,12 @@
                                     "Name" : "laps",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : "{Item.LapsCountQ1}",
-                                                "font" : "{FontNameBold}"
+                                                "wwidth" : "70",
+                                                "ssource" : "{Item.LapsCountQ1}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -172,12 +173,12 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "130",
-                                                "source" : "{Item.QualQ2Time}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "130",
+                                                "ssource" : "{Item.QualQ2Time}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -188,12 +189,12 @@
                                     "Name" : "laps",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : "{Item.LapsCountQ2}",
-                                                "font" : "{FontNameBold}"
+                                                "wwidth" : "70",
+                                                "ssource" : "{Item.LapsCountQ2}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -204,12 +205,12 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "130",
-                                                "source" : "{Item.QualQ3Time}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "130",
+                                                "ssource" : "{Item.QualQ3Time}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -220,12 +221,12 @@
                                     "Name" : "laps",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : "{Item.LapsCountQ3}",
-                                                "font" : "{FontNameBold}"
+                                                "wwidth" : "70",
+                                                "ssource" : "{Item.LapsCountQ3}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -269,12 +270,13 @@
                                     "Name" : "indexcolumn",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "23",
-                                                "source" : " ",
-                                                "paddingright" : "10"
+                                                "wwidth" : "23",
+                                                "ssource" : " ",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }                                        
                                     }
@@ -284,13 +286,13 @@
                                     "Name" : "racenumber",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "35",
-                                                "source" : "{Item.Driver.RaceNumber}",
-                                                "paddingright" : "10",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "35",
+                                                "ssource" : "{Item.Driver.RaceNumber}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -300,12 +302,12 @@
                                     "Name" : "drivername",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnleft",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
                                             "Vars" : {
-                                                "width" : "300",
-                                                "source" : "{Item.Driver.Name}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "300",
+                                                "ssource" : "{Item.Driver.Name}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -316,11 +318,11 @@
                                     "Name" : "flag",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "driver_flag",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "driver_flag",
                                             "Vars" : {
-                                                "width" : "50",
-                                                "pathh" : "images/flags/{Item.Driver.Nationality.Code}.png"
+                                                "wwidth" : "50",
+                                                "pathh" : "flags/{Item.Driver.Nationality.Code}.png"
                                             }
                                         }
                                         
@@ -331,11 +333,12 @@
                                     "Name" : "TEAM",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnleft",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnleft",
                                             "Vars" : {
-                                                "width" : "225",
-                                                "source" : "{Item.Team.Name}"
+                                                "wwidth" : "225",
+                                                "ssource" : "{Item.Team.Name}",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }
                                         
@@ -346,12 +349,12 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "130",
-                                                "source" : "{Item.FastestLapTime}",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "130",
+                                                "ssource" : "{Item.FastestLapTime}",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -362,12 +365,12 @@
                                     "Name" : "laps",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "95",
-                                                "source" : " ",
-                                                "font" : "{FontNameBold}"
+                                                "wwidth" : "95",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -379,11 +382,12 @@
                                     "Name" : "GAP",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columnright",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columnright",
                                             "Vars" : {
-                                                "width" : "60",
-                                                "source" : " "
+                                                "wwidth" : "60",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }
                                         
@@ -394,11 +398,12 @@
                                     "Name" : "GAP",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : " "
+                                                "wwidth" : "70",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameDefault}"
                                             }
                                         }
                                         
@@ -409,12 +414,12 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "130",
-                                                "source" : " ",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "130",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
                                         
@@ -425,15 +430,14 @@
                                     "Name" : "laps",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : " ",
-                                                "font" : "{FontNameBold}"
+                                                "wwidth" : "70",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
-                                        
                                     }
                                 },
                                 {
@@ -441,15 +445,14 @@
                                     "Name" : "TIME",
                                     "Template" : {
                                         "BlockType" : "component",
+                                        "Component" : "results_columncenter",
                                         "ComponentOptions" : {
-                                            "ComponentName" : "results_columncenter",
                                             "Vars" : {
-                                                "width" : "70",
-                                                "source" : " ",
-                                                "fontt" : "{FontNameBold}"
+                                                "wwidth" : "70",
+                                                "ssource" : " ",
+                                                "ffont" : "{FontNameBold}"
                                             }
                                         }
-                                        
                                     }
                                 }
                             ]
