@@ -1,0 +1,245 @@
+{
+    "BlockRoot": {
+        "BlockType" : "stack",
+        "Orientation" : "Vertical",
+        "Margin" : "25,25,25,25",
+        "Items": [
+            {
+                "BlockType" : "text",
+                "Source" : "{Season.LeagueInfo.LeagueFullName} - {Season.MainLeagueCategory.Name}",
+                "Width" : "*",
+                "Background" : "#000000",
+                "Foreground" : "#ffffff",
+                "Height" : 50,
+                "MarginBottom" : 15,
+                "PaddingLeft" : 15,
+                "PaddingRight" : 15,
+                "TextOptions" : {
+                    "HorizontalAlignment" :"Center",
+                    "FontName" : "{FormulaBold}",
+                    "FontSize" : 30
+                },
+                "Triggers" : [
+                    {
+                        "Condition" : "{Season.MainLeagueCategory.Name, Converter=StringEquals, Parameter=<no category>}",
+                        "Property" : "Source",
+                        "Value" : "{Season.LeagueInfo.LeagueFullName}"
+                    }
+                ]
+            },
+            {
+                "BlockType" : "text",
+                "Width" : "*",
+                "Source" : "Driver Standings",
+                "Background" : "#b8b7bb",
+                "Height" : 50,
+                "MarginBottom" : 15,
+                "TextOptions" : {
+                    "HorizontalAlignment" :"Center",
+                    "FontName" : "{FormulaBold}",
+                    "FontSize" : 30
+                }
+            },
+            {
+                "BlockType" : "stack",
+                "Orientation" : "Horizontal",
+                "HorizontalAlignment" : "Center",
+                "Items" : [
+                    {
+                        "BlockType" : "table",
+                        "HorizontalAlignment" : "Center",
+                        "TableOptions" : {
+                            "ItemsSource": "{Standings.Drivers}",
+                            "HeaderTemplate": {
+                                "BlockType" : "text",
+                                "FontName" : "{FontNameBold}",
+                                "HorizontalAlignment" : "Center",
+                                "Width" : "*"
+                            },
+                            "Columns": [
+                                {
+                                    "Header" : "",
+                                    "Name" : "indexcolumn",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "Component" : "results_columnright",
+                                        "ComponentOptions" : {
+                                            "Vars" : {
+                                                "wwidth" : "23",
+                                                "ssource" : "{Item.Index}",//{Item.Position}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameDefault}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "DRIVER",
+                                    "Name" : "drivername",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "Component" : "results_columnleft",
+                                        "ComponentOptions" : {
+                                            "Vars" : {
+                                                "wwidth" : "200",
+                                                "ssource" : "{Item.Driver.Name}",
+                                                "ffont" : "{FontNameBold}"
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                {
+                                    "Header" : "TOTAL",
+                                    "Name" : "racenumber",
+                                    "Template" : {
+                                        "BlockType" : "component",
+                                        "Component" : "results_columnright",
+                                        "ComponentOptions" : {
+                                            "Vars" : {
+                                                "wwidth" : "35",
+                                                "ssource" : "{Item.Points}",
+                                                "ppaddingright" : "10",
+                                                "ffont" : "{FontNameBold}"
+                                            }
+                                        }                                        
+                                    }
+                                },
+                                {
+                                    "MultiColumnHeadersSource": "{Standings.Events}",
+                                    "MultiColumnItemsSource": "{Item.Events}",
+                                    "MultiColumnHeaderTemplate": {
+                                        "BlockType": "stack",
+                                        "Orientation": "Vertical",
+                                        "Spacing": 4,
+                                        "HorizontalAlignment": "Center",
+                                        "Items": [
+                                            {
+                                                "BlockType": "image",
+                                                "Source": "flags/{Item.Track.Nation.Code}",
+                                                "HorizontalAlignment": "Center",
+                                                "Height": 22
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                //"MarginBottom": 8,
+                                                "HorizontalAlignment": "Center",
+                                                "Source": "{Item.Track.Nation.Code}",
+                                                "FontName": "{FontNameBold}"
+                                                //"Style" : "tableColumnHeader"                                        
+                                            }
+                                        ]
+                                    },
+                                    "Template" : {
+                                        //"BlockType" : "text",
+                                        //"Source" : "{Item.Index}"
+                                        "BlockType": "stack",
+                                        "RenderIf" : "{Item.Event.WinnerString, Converter=EmptyObjectToFalse}",
+                                        "Orientation" : "Vertical",
+                                        "Width" : 65,
+                                        "Height" : 60,
+                                        "Background" : "#000000",
+                                        "Items" : [
+                                            {
+                                                "BlockType": "dock",
+                                                "Orientation" : "Vertical",
+                                                "HorizontalAlignment": "Right",
+                                                "Width" : 64,
+                                                "Height" : 60,
+                                                "Background" : "#ffffff",
+                                                "Items" : [
+                                                    {
+                                                        "BlockType": "text",
+                                                        "Source" : "{Item.Points}",
+                                                        "Width" : "25",
+                                                        "MarginLeft" : 2,
+                                                        "MarginTop" : 8,
+                                                        "HorizontalAlignment": "Left",
+                                                        "VerticalAlignment": "Top",
+                                                        "TextOptions": {
+                                                            "HorizontalAlignment": "Right"
+                                                        }
+                                                    },
+                                                    {
+                                                        "BlockType": "dock",
+                                                        "Orientation": "Horizontal",
+                                                        "MarginBottom" : 8,
+                                                        "HorizontalAlignment": "Center",
+                                                        "VerticalAlignment": "Bottom",
+                                                        "Items" : [
+                                                            {
+                                                                "BlockType": "text",
+                                                                "Source" : "{Item.RaceMajorPosition}",
+                                                                "HorizontalAlignment": "Center",
+                                                                "FontSize" : 15,
+                                                                "Triggers" : [
+                                                                    
+                                                                    {
+                                                                        "Condition": "{Item.IsMajorRaceFastestLap}",
+                                                                        "Setters" : [
+                                                                            {
+                                                                                "Property": "Source",
+                                                                                "Value" : "{Item.RaceMajorPosition}F"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "Condition": "{Item.IsRaceMajorClassified, Converter=BoolReverse}",
+                                                                        "Setters" : [
+                                                                            {
+                                                                                "Property": "Source",
+                                                                                "Value" : "NC"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "Condition": "{Item.IsParticipiedEvent, Converter=BoolReverse}",
+                                                                        "Setters" : [
+                                                                            {
+                                                                                "Property": "Source",
+                                                                                "Value" : "dns"
+                                                                            },
+                                                                            {
+                                                                                "Property" : "Foreground",
+                                                                                "Value" : "#00000000"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                                //"Foreground": "#00000000"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "Triggers" : [
+                                            {
+                                              "Condition" : "{Item.Index, Converter=NumberIsEven}",
+                                              "Property" : "Background",
+                                              "Value" : "{GrayBG}"
+                                            },
+                                          {
+                                              "Condition" : "{Item.Index, Converter=NumberEquals, Parameter=0}",
+                                              "Setters" : [
+                                                {
+                                                  "Property" : "BackgroundImage",
+                                                  "Value" : "borderbg.png"
+                                                },
+                                                {
+                                                  "Property" : "Background",
+                                                  "Value" : "null"
+                                                }
+                                              ]
+                                          },
+                                        ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
