@@ -33,3 +33,18 @@ jobs:
           files: FIA-Universal-Theme.zip
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          
+      - name: Label fixed issues
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = context.payload.release;
+            const issueNumbers = release.body.match(/#(\d+)/g);
+            for (const num of issueNumbers || []) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(num.slice(1)),
+                labels: ['released', `released-in-${release.tag_name}`]
+              });
+            }
